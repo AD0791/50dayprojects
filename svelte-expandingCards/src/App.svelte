@@ -1,30 +1,81 @@
 <script>
-	export let name;
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	.container {
+		display: flex;
+		width: 90vw;
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+	.panel {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 80vh;
+		border-radius: 50px;
+		color: #fff;
+		cursor: pointer;
+		flex: 0.5;
+		margin: 10px;
+		position: relative;
+		transition: flex 0.7s ease-in;
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
+	.panel h3 {
+		font-size: 24px;
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		margin: 0;
+		opacity: 0;
+		color: gold;
+	}
+
+	.panel.active {
+		flex: 5;
+	}
+
+	.panel.active h3 {
+		opacity: 1;
+		transition: opacity 0.3s ease-in 0.4s;
+	}
+
+	@media (max-width: 480px) {
+		.container {
+			width: 100vw;
+		}
+
+		.panel:nth-of-type(4),
+		.panel:nth-of-type(5) {
+			display: none;
 		}
 	}
 </style>
+
+<div class="container">
+	<div
+		class="panel active"
+		style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+		<h3>Explore The World</h3>
+	</div>
+	<div
+		class="panel"
+		style="background-image: url('https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+		<h3>Wild Forest</h3>
+	</div>
+	<div
+		class="panel"
+		style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80')">
+		<h3>Sunny Beach</h3>
+	</div>
+	<div
+		class="panel"
+		style="background-image: url('https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')">
+		<h3>City on Winter</h3>
+	</div>
+	<div
+		class="panel"
+		style="background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+		<h3>Mountains - Clouds</h3>
+	</div>
+</div>
