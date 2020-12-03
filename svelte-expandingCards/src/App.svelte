@@ -9,11 +9,11 @@
 	let beachActive;
 	let cityActive;
 	let mountainActive;
-	let forestActiveHandler = () => (forestActive = !forestActive);
-	let beachActiveHandler = () => (beachActive = !beachActive);
-	let cityActiveHandler = () => (cityActive = !cityActive);
-	let mountainActiveHandler = () => (mountainActive = !mountainActive);
-	let wordActiveHandler = () => (wordActive = !wordActive);
+	const forestActiveHandler = () => (forestActive = !forestActive);
+	const beachActiveHandler = () => (beachActive = !beachActive);
+	const cityActiveHandler = () => (cityActive = !cityActive);
+	const mountainActiveHandler = () => (mountainActive = !mountainActive);
+	const wordActiveHandler = () => (wordActive = !wordActive);
 </script>
 
 <style>
