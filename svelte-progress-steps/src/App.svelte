@@ -1,30 +1,18 @@
 <script>
-	export let name;
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>
+
+<div class="container">
+	<div class="progress-container">
+		<div class="progress" id="progress" />
+		<div class="circle active">1</div>
+		<div class="circle">2</div>
+		<div class="circle">3</div>
+		<div class="circle">4</div>
+	</div>
+
+	<button class="btn" id="prev" disabled>Prev</button>
+	<button class="btn" id="next">Next</button>
+</div>
