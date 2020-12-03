@@ -4,6 +4,11 @@
 	const previousHandler = () => {};
 
 	const nextHandler = () => {
+		const circles = 4;
+		currentActive++;
+		if (currentActive > circles) {
+			currentActive = circles;
+		}
 		enableActiveHandler();
 	};
 
