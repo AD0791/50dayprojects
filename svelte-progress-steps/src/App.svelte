@@ -1,19 +1,43 @@
 <script>
 	let currentActive = 1;
 	let enableActive;
-	const previousHandler = () => {};
+	let circles = 4;
+	let disabled;
+
+	const previousHandler = () => {
+		currentActive--;
+		if (currentActive < 1) {
+			currentActive = 1;
+		}
+		enbaleButtonHelper();
+		desactivateHelper();
+	};
 
 	const nextHandler = () => {
-		const circles = 4;
 		currentActive++;
 		if (currentActive > circles) {
 			currentActive = circles;
 		}
-		enableActiveHandler();
+		enableActiveHelper();
+		enbaleButtonHelper();
 	};
 
-	const enableActiveHandler = () => {
+	const enableActiveHelper = () => {
 		enableActive = !enableActive;
+	};
+
+	const desactivateHelper = () => {
+		enableActive = false;
+	};
+
+	const enbaleButtonHelper = () => {
+		if (currentActive === 1) {
+			disabled = true;
+		} else if (currentActive === circles) {
+			disabled = true;
+		} else {
+			disabled = false;
+		}
 	};
 </script>
 
@@ -33,6 +57,6 @@
 		on:click={previousHandler}
 		class="btn"
 		id="prev"
-		disabled>Prev</button>
+		{disabled}>Prev</button>
 	<button on:click={nextHandler} class="btn" id="next">Next</button>
 </div>
