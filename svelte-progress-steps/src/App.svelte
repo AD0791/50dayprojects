@@ -1,10 +1,12 @@
 <script>
 	let currentActive = 1;
-	let previousEnableActive;
-	let nextEnableActive;
-	let circles = [1, 2, 3, 4];
+	let active1 = true;
+	let active2;
+	let active3;
+	let active4;
 	let previousDisabled;
 	let nextDisabled;
+	let circles = [1, 2, 3, 4];
 
 	const previousHandler = () => {
 		currentActive--;
@@ -12,6 +14,7 @@
 			currentActive = 1;
 		}
 		buttonHelper();
+		//previouscircleHelper();
 	};
 
 	const nextHandler = () => {
@@ -20,14 +23,7 @@
 			currentActive = circles.length;
 		}
 		buttonHelper();
-	};
-
-	const previousEnableActiveHelper = () => {
-		previousEnableActive = !previousEnableActive;
-	};
-
-	const nextEnableActiveHelper = () => {
-		nextEnableActive = !nextEnableActive;
+		//nextcircleHelper();
 	};
 
 	const buttonHelper = () => {
@@ -40,6 +36,32 @@
 			nextDisabled = false;
 		}
 	};
+	const nextcircleHelper = () => {
+		circles.forEach((c) => {
+			if (c === 2) {
+				active2 = true;
+			}
+			if (c === 3) {
+				active3 = true;
+			}
+			if (c === 4) {
+				active4 = true;
+			}
+		});
+	};
+	const previouscircleHelper = () => {
+		circles.forEach((c) => {
+			if (c === 2) {
+				active2 = false;
+			}
+			if (c === 3) {
+				active3 = false;
+			}
+			if (c === 4) {
+				active4 = false;
+			}
+		});
+	};
 </script>
 
 <style>
@@ -48,10 +70,10 @@
 <div class="container">
 	<div class="progress-container">
 		<div class="progress" id="progress" />
-		<div class="circle active">1</div>
-		<div class={previousEnableActive ? ' circle active' : 'circle'}>2</div>
-		<div class="circle">3</div>
-		<div class="circle">4</div>
+		<div class={active1 ? ' circle active' : 'circle'}>1</div>
+		<div class={active2 ? ' circle active' : 'circle'}>2</div>
+		<div class={active3 ? ' circle active' : 'circle'}>3</div>
+		<div class={active4 ? ' circle active' : 'circle'}>4</div>
 	</div>
 
 	<button
